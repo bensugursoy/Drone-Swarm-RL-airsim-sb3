@@ -136,6 +136,10 @@ Always be sure to be running the UE4 env before running training or evaluation, 
 * PettingZoo & SuperSuit
 * Akiya Kamimura
 
+## Citation
+
+If you find this work useful in your research, you are welcome to cite it. An official publication is currently in preparation and will be linked here once available. In the meantime, feel free to reference this repository and acknowledge the work.
+
 ## License
 
 This project is licensed under the MIT License. See [LICENSE](LICENSE) for details.
