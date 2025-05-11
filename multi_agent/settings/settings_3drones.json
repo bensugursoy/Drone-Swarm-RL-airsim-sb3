@@ -1,0 +1,101 @@
+{
+  "SeeDocsAt": "https://github.com/Microsoft/AirSim/blob/main/docs/settings.md",
+  "SettingsVersion": 1.2,
+  "LocalHostIp": "127.0.0.1",
+  "SimMode": "Multirotor",
+  "ClockSpeed": 40,
+  "ViewMode": "FlyWithMe",
+  "Vehicles": {
+      "drone0": {
+        "VehicleType": "SimpleFlight",
+        "X": 0.0,
+        "Y": 0.0,
+        "Z": 0.0,
+        "Yaw": 0.0,
+        "Cameras": {
+          "drone0": {
+            "CaptureSettings": [
+              {
+                "ImageType": 0,
+                "Width": 84,
+                "Height": 84,
+                "FOV_Degrees": 120
+              }
+            ],
+            "Pitch": 0.0,
+            "Roll": 0.0,
+            "Yaw": 0.0,
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": -0.6
+          }
+        }
+      },
+      "drone1": {
+        "VehicleType": "SimpleFlight",
+        "X": 0.0,
+        "Y": 0.0,
+        "Z": 0.0,
+        "Yaw": 0.0,
+        "Cameras": {
+          "drone1": {
+            "CaptureSettings": [
+              {
+                "ImageType": 0,
+                "Width": 84,
+                "Height": 84,
+                "FOV_Degrees": 120
+              }
+            ],
+            "Pitch": 0.0,
+            "Roll": 0.0,
+            "Yaw": 0.0,
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": -0.6
+          }
+        }  
+      },
+      "drone2": {
+        "VehicleType": "SimpleFlight",
+        "X": 0.0,
+        "Y": 0.0,
+        "Z": 0.0,
+        "Yaw": 0.0,
+        "Cameras": {
+          "drone2": {
+            "CaptureSettings": [
+              {
+                "ImageType": 0,
+                "Width": 84,
+                "Height": 84,
+                "FOV_Degrees": 120
+              }
+            ],
+            "Pitch": 0.0,
+            "Roll": 0.0,
+            "Yaw": 0.0,
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": -0.6
+          }
+        }  
+      }
+  },
+  "CameraDefaults": {
+      "CaptureSettings": [
+          {
+              "ImageType": 0,
+              "Width": 84,
+              "Height": 84,
+              "FOV_Degrees": 120
+          },
+          {
+              "ImageType": 2,
+              "Width": 84,
+              "Height": 84,
+              "FOV_Degrees": 120
+          }
+      ]
+  }
+}
