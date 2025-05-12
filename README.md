@@ -1,11 +1,11 @@
-# Multi-agent Deep Reinforcement Learning for Drone Swarms using UE4, AirSim, Stable-Baselines3, PettingZoo
+# Multi-agent Deep Reinforcement Learning for Drone Swarms using UE4, AirSim, Stable-Baselines3, PettingZoo, SuperSuit
 
 ## Overview
 
 This repository contains the code and environments for my thesis on reinforcement learning of drone swarms using Unreal Engine 4 and Microsoft AirSim conducted at AIST, Tsukuba. It includes two separate implementations:
 
-* **Single-Agent**: Training a single drone using PPO in a custom UE4 using StableBaseline3.
-* **Multi-Agent**: Training a swarm of drones using PPO with modified versions of PettingZoo and Supersuit libraries to support multi-agent and stacked observations in case of RGB camera.
+* **Single-Agent**: Training a single drone using PPO in a custom UE4 using StableBaseline3 and Gymnasium.
+* **Multi-Agent**: Training a swarm of drones using PPO with modified versions of PettingZoo and Supersuit libraries to support multi-agent stacked observations in case of RGB camera.
 
 All code is placed under the `airsim` folder and assumes AirSim and UE4 are installed following the [official AirSim documentation](https://microsoft.github.io/AirSim/).
 
@@ -32,10 +32,11 @@ All code is placed under the `airsim` folder and assumes AirSim and UE4 are inst
 ```
 
 ## Prerequisites
-
-1. **Unreal Engine 4**: Install via Epic Games Launcher. Ensure you have a UE4 project compatible with AirSim.
-2. **Microsoft AirSim**: Clone and build following the [AirSim installation guide](https://microsoft.github.io/AirSim/) *AirSim creates a `settings.json` file in your user Documents directory under `Documents/AirSim` on Windows or `~/Documents/AirSim` on Linux systems* ([microsoft.github.io](https://microsoft.github.io/AirSim/settings/)).
-3. **Conda**: For managing Python environments.
+> ⚠️ **Warning:**  this client was developed and tested on **Windows only**. It may not install or run correctly on macOS or Linux.
+> 
+1. **Unreal Engine 4**: install via Epic Games Launcher. Ensure you have a UE4 project compatible with AirSim.
+2. **Microsoft AirSim**: clone and build following the [AirSim installation guide](https://microsoft.github.io/AirSim/) *AirSim creates a `settings.json` file in your user Documents directory under `Documents/AirSim` on Windows or `~/Documents/AirSim` on Linux systems* ([microsoft.github.io](https://microsoft.github.io/AirSim/settings/)).
+3. **Conda**: for managing Python environments.
 
 ## Single-Agent Setup
 
@@ -50,10 +51,10 @@ All code is placed under the `airsim` folder and assumes AirSim and UE4 are inst
    conda env create -f environment.yml     # Python 3.9.16 
    conda activate deeprl_single
    ```
-3. Copy the `airsim` folder into your AirSim plugin directory:
+3. Copy the `airsim` folder into your AirSim PythonClient directory:
 
    ```bash
-   cp -r airsim /path/to/AirSim/Unreal/Plugins/
+   cp -r airsim /path/to/AirSim/PythonClient/
    ```
 4. Launch UE4, open your project, and hit **Play** to run the environment (at this point, the drone will be stuck waiting for training/evaluation script).
 
@@ -65,6 +66,7 @@ All code is placed under the `airsim` folder and assumes AirSim and UE4 are inst
    cd multi_agent
    ```
 2. Install the environment using:
+
    ```bash
    conda env create -f environment.yml     # Python 3.11.3 
    conda activate deeprl_multi
@@ -74,6 +76,7 @@ All code is placed under the `airsim` folder and assumes AirSim and UE4 are inst
    ```bash
    pip install -e modified_libs/pettingzoo
    pip install -e modified_libs/supersuit
+   ... # Unfortunately, I can't remember which packages I modified.  I advice you to install all of them to avoid bugs.
    ```
 4. **Place your custom `settings.json`** (with your desired number of drones) *into the folder created by AirSim at `Documents/AirSim` on Windows or `~/Documents/AirSim` on Linux*, replacing the default settings file ([microsoft.github.io](https://microsoft.github.io/AirSim/settings/)).
 5. Copy the `airsim` folder into the AirSim Python Client folder:
@@ -85,8 +88,8 @@ All code is placed under the `airsim` folder and assumes AirSim and UE4 are inst
 
 ## Usage
 
-* **Important**: All coordinates, spawn positions, and environment parameters in the code must be adapted to your specific UE4 map. Since maps are not provided, ensure you update any hardcoded positions and settings to match the map you create.
-
+> **Important**: All coordinates, spawn positions, and environment parameters in the code must be adapted to your specific UE4 map. Since maps are not provided, ensure you update any hardcoded positions and settings to match the map you create.
+>
 * Launch training via:
 
   ```bash
@@ -124,12 +127,17 @@ It will evaluate the weights saved inside `saved_policy`.
 
 Always be sure to be running the UE4 env before running training or evaluation, and that the settings are set correctly (and renamed to `settings.json`). If you want to modify the number of drones, you should modify the code.
 
+## Training Maps
+
+> **Note:** The training maps used in this project are **~200 GB**.  
+> They’re available on request; just let me know if you’d like a copy!
+
 ## Acknowledgments
 
 * Unreal Engine 4 (Epic Games)
 * Microsoft AirSim
 * PettingZoo & SuperSuit
-* Prof. Akiya Kamimura
+* Prof. Akiya Kamimura & Prof. Andrea Roli
 
 ## Citation
 
