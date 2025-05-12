@@ -58,12 +58,6 @@ All code is placed under the `airsim` folder and assumes AirSim and UE4 are inst
 
 ## Multi-Agent Setup
 
-> **Note:** The full environment folder `env_folder` contains the binaries and packages used in Conda. If you prefer a `requirements.txt`, you can generate one by running:
->
-> ```bash
-> conda list --export > requirements.txt
-> ```
-
 1. Navigate to the `multi_agent` folder:
 
    ```bash
