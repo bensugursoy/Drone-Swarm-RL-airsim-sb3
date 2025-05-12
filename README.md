@@ -22,6 +22,7 @@ All code is placed under the `airsim` folder and assumes AirSim and UE4 are inst
 │   └── airsim/                  # Single-agent code to place inside AirSim PythonClient folder
 │       └── ...
 ├── multi_agent/
+│   ├── environment.yml          # Conda environment for multi-agent setup
 │   ├── modified_libs/           # Modified packages (e.g., PettingZoo, SuperSuit)
 │   ├── settings/                # Multi-drone configurations for AirSim
 │       └── ...
@@ -128,7 +129,7 @@ Always be sure to be running the UE4 env before running training or evaluation, 
 * Unreal Engine 4 (Epic Games)
 * Microsoft AirSim
 * PettingZoo & SuperSuit
-* Akiya Kamimura
+* Prof. Akiya Kamimura
 
 ## Citation
 
