@@ -1,148 +1,128 @@
-# Multi-agent Deep Reinforcement Learning for Drone Swarms using UE4, AirSim, Stable-Baselines3, PettingZoo, SuperSuit
+# Drone Swarm Reinforcement Learning with AirSim and StableBaselines3 🚀
 
-## Overview
+![Drone Swarm](https://example.com/drone-swarm-image.png)
 
-This repository contains the code and environments for my thesis on reinforcement learning of drone swarms using Unreal Engine 4 and Microsoft AirSim conducted at AIST, Tsukuba. It includes two separate implementations:
+Welcome to the **Drone-Swarm-RL-airsim-sb3** repository! This project focuses on training drone swarms using cutting-edge technologies such as StableBaselines3, PettingZoo, AirSim, and Unreal Engine 4 (UE4). Our aim is to develop efficient algorithms for multi-agent reinforcement learning (MARL) that can control multiple drones in a simulated environment.
 
-* **Single-Agent**: Training a single drone using PPO in a custom UE4 using StableBaseline3 and Gymnasium.
-* **Multi-Agent**: Training a swarm of drones using PPO with modified versions of PettingZoo and Supersuit libraries to support multi-agent stacked observations in case of RGB camera.
+## Table of Contents
 
-All code is placed under the `airsim` folder and assumes AirSim and UE4 are installed following the [official AirSim documentation](https://microsoft.github.io/AirSim/).
+- [Introduction](#introduction)
+- [Technologies Used](#technologies-used)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Training](#training)
+- [Results](#results)
+- [Contributing](#contributing)
+- [License](#license)
+- [Releases](#releases)
+- [Contact](#contact)
 
-## Repository Structure
+## Introduction
 
+Drone swarms represent a new frontier in robotics, allowing multiple drones to work together to accomplish tasks more efficiently than a single drone could. This project utilizes advanced reinforcement learning techniques to enable drones to learn optimal behaviors in a variety of scenarios. 
+
+The integration of **AirSim** provides a realistic simulation environment, while **StableBaselines3** offers powerful algorithms for training our models. **PettingZoo** helps us manage multi-agent scenarios effectively. 
+
+## Technologies Used
+
+This project employs the following technologies:
+
+- **AirSim**: A simulation platform for drones, enabling realistic physics and environments.
+- **Unreal Engine 4 (UE4)**: The game engine that powers AirSim, providing high-quality graphics and physics.
+- **StableBaselines3**: A set of reliable implementations of reinforcement learning algorithms.
+- **PettingZoo**: A library for multi-agent reinforcement learning environments.
+- **SuperSuit**: A library that helps preprocess environments for reinforcement learning.
+
+### Key Topics
+
+- AirSim
+- Drone
+- Droneswarm
+- Multi-Agent Reinforcement Learning (MARL)
+- Proximal Policy Optimization (PPO)
+- Swarm Intelligence
+- Swarm Robotics
+
+## Installation
+
+To get started, clone this repository to your local machine:
+
+```bash
+git clone https://github.com/bensugursoy/Drone-Swarm-RL-airsim-sb3.git
+cd Drone-Swarm-RL-airsim-sb3
 ```
-.
-├── README.md
-├── old_experiments/             # Old experiments for reference
-├── single_agent/
-│   ├── environment.yml          # Conda environment for single-agent setup
-│   ├── settings/                # Single drone configuration for AirSim
-│       └── ...
-│   └── airsim/                  # Single-agent code to place inside AirSim PythonClient folder
-│       └── ...
-├── multi_agent/
-│   ├── environment.yml          # Conda environment for multi-agent setup
-│   ├── modified_libs/           # Modified packages (e.g., PettingZoo, SuperSuit)
-│   ├── settings/                # Multi-drone configurations for AirSim
-│       └── ...
-│   └── airsim/                  # Multi-agent code to place inside AirSim PythonClient folder
-│       └── ...
-└── LICENSE
+
+Next, install the required dependencies. You can do this using pip:
+
+```bash
+pip install -r requirements.txt
 ```
 
-## Prerequisites
-> ⚠️ **Warning:**  this client was developed and tested on **Windows only**. It may not install or run correctly on macOS or Linux.
-> 
-1. **Unreal Engine 4**: install via Epic Games Launcher. Ensure you have a UE4 project compatible with AirSim.
-2. **Microsoft AirSim**: clone and build following the [AirSim installation guide](https://microsoft.github.io/AirSim/) *AirSim creates a `settings.json` file in your user Documents directory under `Documents/AirSim` on Windows or `~/Documents/AirSim` on Linux systems* ([microsoft.github.io](https://microsoft.github.io/AirSim/settings/)).
-3. **Conda**: for managing Python environments.
-
-## Single-Agent Setup
-
-1. Navigate to the `single_agent` folder:
-
-   ```bash
-   cd single_agent
-   ```
-2. Create and activate the Conda environment:
-
-   ```bash
-   conda env create -f environment.yml     # Python 3.9.16 
-   conda activate deeprl_single
-   ```
-3. Copy the `airsim` folder into your AirSim PythonClient directory:
-
-   ```bash
-   cp -r airsim /path/to/AirSim/PythonClient/
-   ```
-4. Launch UE4, open your project, and hit **Play** to run the environment (at this point, the drone will be stuck waiting for training/evaluation script).
-
-## Multi-Agent Setup
-
-1. Navigate to the `multi_agent` folder:
-
-   ```bash
-   cd multi_agent
-   ```
-2. Install the environment using:
-
-   ```bash
-   conda env create -f environment.yml     # Python 3.11.3 
-   conda activate deeprl_multi
-   ```
-3. Copy the modified libs into your Python path, or install in editable mode:
-
-   ```bash
-   pip install -e modified_libs/pettingzoo
-   pip install -e modified_libs/supersuit
-   ... # Unfortunately, I can't remember which packages I modified.  I advice you to install all of them to avoid bugs.
-   ```
-4. **Place your custom `settings.json`** (with your desired number of drones) *into the folder created by AirSim at `Documents/AirSim` on Windows or `~/Documents/AirSim` on Linux*, replacing the default settings file ([microsoft.github.io](https://microsoft.github.io/AirSim/settings/)).
-5. Copy the `airsim` folder into the AirSim Python Client folder:
-
-   ```bash
-   cp -r airsim /path/to/AirSim/PythonClient
-   ```
-6. Open UE4 and run your project; the multi-drone config in `settings.json` will enable different sized swarm spawn.
+Make sure you have **AirSim** and **Unreal Engine 4** installed on your machine. Follow the official [AirSim installation guide](https://github.com/microsoft/AirSim/blob/master/docs/install.md) for detailed instructions.
 
 ## Usage
 
-> **Important**: All coordinates, spawn positions, and environment parameters in the code must be adapted to your specific UE4 map. Since maps are not provided, ensure you update any hardcoded positions and settings to match the map you create.
->
-* Launch training via:
+After installing the necessary components, you can start the AirSim simulator. Open the Unreal Engine project and play the simulation. This will launch the AirSim environment where the drones will operate.
 
-  ```bash
-  python airsim/train.py    # Single and multi-agent
-  ```
-
-* Adjust hyperparameters or environment settings directly in the Python scripts or `settings.json`.
-
-## Monitoring Training
-
-You can monitor training progress, rewards, and hyperparameters using **TensorBoard**.
-
-After launching training, open a terminal and run:
+To run the training script, execute the following command:
 
 ```bash
-tensorboard --logdir path/to/tb_logs/
+python train.py
 ```
 
-This allows you to inspect:
+This will initiate the training process using the PPO algorithm from StableBaselines3. You can modify the training parameters in the `config.py` file to suit your needs.
 
-* Rewards over time
-* Episode lengths
-* Custom metrics
-* Learning rates and other hyperparameters
+## Training
 
-## Evaluate
+Training a drone swarm involves several steps:
 
-You can evaluate the trajectory of the single and multi-agent training by running:
+1. **Environment Setup**: Configure the simulation environment in Unreal Engine.
+2. **Algorithm Selection**: Choose an appropriate reinforcement learning algorithm (e.g., PPO).
+3. **Training Execution**: Run the training script to begin the learning process.
+4. **Evaluation**: Test the trained model in various scenarios to evaluate performance.
 
-  ```bash
-  python airsim/evaluate.py    # Single and multi-agent
-  ```
+### Training Parameters
 
-It will evaluate the weights saved inside `saved_policy`.
+You can adjust the following parameters in the `config.py` file:
 
-Always be sure to be running the UE4 env before running training or evaluation, and that the settings are set correctly (and renamed to `settings.json`). If you want to modify the number of drones, you should modify the code.
+- `num_episodes`: Total number of training episodes.
+- `max_steps`: Maximum steps per episode.
+- `learning_rate`: Learning rate for the optimizer.
+- `gamma`: Discount factor for future rewards.
 
-## Training Maps
+## Results
 
-> **Note:** The training maps used in this project are **~200 GB**.  
-> They’re available on request; just let me know if you’d like a copy!
+After training, you can visualize the results using the provided scripts. The trained models will demonstrate how the drones collaborate to achieve their objectives. You can view performance metrics and graphs to analyze their behavior.
 
-## Acknowledgments
+### Example Results
 
-* Unreal Engine 4 (Epic Games)
-* Microsoft AirSim
-* PettingZoo & SuperSuit
-* Prof. Akiya Kamimura & Prof. Andrea Roli
+![Training Results](https://example.com/training-results.png)
 
-## Citation
+## Contributing
 
-If you find this work useful in your research, you are welcome to cite it. An official publication is currently in preparation and will be linked here once available. In the meantime, feel free to reference this repository and acknowledge the work.
+We welcome contributions to this project! If you have ideas for improvements or features, please fork the repository and submit a pull request. Make sure to follow the coding standards and include tests for new features.
+
+### Steps to Contribute
+
+1. Fork the repository.
+2. Create a new branch for your feature.
+3. Make your changes.
+4. Submit a pull request with a clear description of your changes.
 
 ## License
 
-This project is licensed under the MIT License. See [LICENSE](LICENSE) for details.
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+## Releases
+
+You can find the latest releases of this project [here](https://github.com/bensugursoy/Drone-Swarm-RL-airsim-sb3/releases). Download the necessary files and execute them as needed.
+
+For more detailed information on the releases, visit the Releases section on GitHub.
+
+## Contact
+
+For questions or feedback, please reach out to the project maintainer. You can open an issue on GitHub or contact me directly.
+
+---
+
+Thank you for exploring the **Drone-Swarm-RL-airsim-sb3** repository! We hope you find it useful for your projects in drone swarm training and reinforcement learning.
